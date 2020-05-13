@@ -1,0 +1,12 @@
+@import './cardglobal.scss';
+
+.cardColumns {
+    @include flexDisplay;
+    justify-content: flex-start;
+    margin: 20px 10px;
+    padding:5px 10px 5px 0px;
+    border-radius: 10px;
+    border:1px solid #ccc;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}

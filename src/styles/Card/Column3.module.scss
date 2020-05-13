@@ -1,0 +1,29 @@
+@import './cardglobal.scss';
+
+.column3{
+    display: flex;
+    flex-direction: column;
+    background-color: $card-background;
+    padding:8px;
+    min-width:220px;
+    height:$card-height;
+    .marketValue{
+        @include flexDisplay;
+        font-weight: bold;
+        justify-content: space-between;
+    }
+    .portfolioValue{
+        @include flexDisplay;
+        justify-content: space-between;
+        span:nth-child(1){
+            color:rgba(0,0,0,0.5);
+            font-size: 1.4rem;
+        }
+        span:nth-child(2){
+            font-weight: bold;
+    
+        }
+    }
+    .progress{
+    }
+}

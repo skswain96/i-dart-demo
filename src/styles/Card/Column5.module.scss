@@ -1,0 +1,8 @@
+@import './cardglobal.scss';
+
+.column5{
+    @include flexDisplay(column);
+    background-color: $card-background;
+    padding:8px;
+    height:$card-height;
+}

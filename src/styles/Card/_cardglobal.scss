@@ -1,0 +1,10 @@
+
+ $card-background:rgba(0,0,0,0.05);
+ $card-height:80px;
+
+@mixin flexDisplay($direction : row, $jc:center, $ai:center){
+    display:flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $direction;
+}
