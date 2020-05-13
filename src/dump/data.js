@@ -7,7 +7,8 @@ export const data = [
         "invested_amount": 17952.07,
         "percent_portfolio_value": 22.06,
         "unrealized_PL": 3676.93,
-        "return ": 20.48
+        "return ": 20.48,
+        "type": "MF"
     },
     {
         "scrip": "MFEM",
@@ -17,7 +18,8 @@ export const data = [
         "invested_amount": 4725.84,
         "percent_portfolio_value": 5.81,
         "unrealized_PL": 146.16,
-        "return ": 3.09
+        "return ": 3.09,
+        "type": "MF"
     },
     {
         "scrip": "JPEM",
@@ -27,7 +29,8 @@ export const data = [
         "invested_amount": 18597.60,
         "percent_portfolio_value": 22.86,
         "unrealized_PL": -1377.60,
-        "return ": -7.41
+        "return ": -7.41,
+        "type": "MF"
     },
     {
         "scrip": "KEMQ",
@@ -37,7 +40,8 @@ export const data = [
         "invested_amount": 17811.04,
         "percent_portfolio_value": 21.89,
         "unrealized_PL": -1470.64,
-        "return ": -8.26
+        "return ": -8.26,
+        "type": "MF"
     },
     {
         "scrip": "KLDW",
@@ -47,7 +51,8 @@ export const data = [
         "invested_amount": 13765.36,
         "percent_portfolio_value": 16.92,
         "unrealized_PL": 3441.34,
-        "return ": 25.00
+        "return ": 25.00,
+        "type": "ETF"
     },
     {
         "scrip": "KOIN",
@@ -57,7 +62,8 @@ export const data = [
         "invested_amount": 8509.00,
         "percent_portfolio_value": 10.46,
         "unrealized_PL": -1470.22,
-        "return ": 0.00
+        "return ": 0.00,
+        "type": "ETF"
     },
 
 ]

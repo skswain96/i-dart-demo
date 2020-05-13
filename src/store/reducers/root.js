@@ -1,12 +1,14 @@
 import {
     SET_ALL_DATA,
     UPDATE_DATA,
-    GET_SCRIP
+    GET_SCRIP,
+    SET_CHART_DATA
 } from '../actions/index'
 
 const initialState = {
     data: [],
-    currentScrip: {}
+    currentScrip: {},
+    chartData: null
 }
 
 export default (state = initialState, action) => {
@@ -15,6 +17,23 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 data: [...action.data]
+            }
+
+        case SET_CHART_DATA:
+            let newChartData = {
+                mfPercent: 0,
+                etfPercent: 0
+            }
+            action.data.map(d => {
+                if (d.type === 'MF') newChartData.mfPercent += d.percent_portfolio_value
+                else if (d.type === 'ETF') newChartData.etfPercent += d.percent_portfolio_value
+                else return
+            })
+            newChartData.mfPercent = newChartData.mfPercent.toFixed(2)
+            newChartData.etfPercent = newChartData.etfPercent.toFixed(2)
+            return {
+                ...state,
+                chartData: newChartData
             }
         case UPDATE_DATA:
             let totalData = [...state.data]

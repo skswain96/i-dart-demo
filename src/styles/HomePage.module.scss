@@ -1,7 +1,11 @@
 .openMenuButton{
     display: flex;
-    justify-content: flex-end;
-    margin: 20px;
+    justify-content: space-between;
+    padding: 10px 25px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    span{
+        font-size: 3rem;
+    }
     i{
         font-size: 26px;
         cursor:pointer;
