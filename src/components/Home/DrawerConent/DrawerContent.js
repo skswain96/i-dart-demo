@@ -187,7 +187,7 @@ const DrawerContent = ({
           }}
         />
       </Grid>
-      <Grid item xs container className={styles.marginBottom}>
+      {/* <Grid item xs container className={styles.marginBottom}>
         <TextField
           onChange={(e) => setPercentProfileValue(e.target.value)}
           variant="outlined"
@@ -205,7 +205,7 @@ const DrawerContent = ({
             },
           }}
         />
-      </Grid>
+      </Grid> */}
       {/* <Grid item xs container className={styles.marginBottom}>
         <TextField
           onChange={(e) => setUnrealizedPL(e.target.value)}
