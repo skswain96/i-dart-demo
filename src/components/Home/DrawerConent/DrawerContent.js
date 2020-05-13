@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Grid, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import Select1 from "@atlaskit/select";
-import Textfield from "@atlaskit/textfield";
+// import InputLabel from "@material-ui/core/InputLabel";
+// import MenuItem from "@material-ui/core/MenuItem";
+// import FormControl from "@material-ui/core/FormControl";
+// import Select from "@material-ui/core/Select";
+import Select from "@atlaskit/select";
+// import Textfield from "@atlaskit/textfield";
 import Button from "@material-ui/core/Button";
 
 import { connect } from "react-redux";
@@ -96,7 +96,7 @@ const DrawerContent = ({
         />
       </Grid>
       <Grid item xs container className={styles.marginBottom}>
-        <Select1
+        <Select
           className="single-select"
           classNamePrefix="react-select"
           options={[
@@ -127,25 +127,6 @@ const DrawerContent = ({
       </Grid>
       <Grid item xs container className={styles.marginBottom}>
         <TextField
-          onChange={(e) => setQuantity(e.target.value)}
-          variant="outlined"
-          label="Quantity"
-          fullWidth
-          value={quantity}
-          InputProps={{
-            classes: {
-              input: styles.resize,
-            },
-          }}
-          InputLabelProps={{
-            classes: {
-              root: styles.resize,
-            },
-          }}
-        />
-      </Grid>
-      <Grid item xs container className={styles.marginBottom}>
-        <TextField
           onChange={(e) => setPrice(e.target.value)}
           variant="outlined"
           label="Price"
@@ -165,6 +146,25 @@ const DrawerContent = ({
       </Grid>
       <Grid item xs container className={styles.marginBottom}>
         <TextField
+          onChange={(e) => setQuantity(e.target.value)}
+          variant="outlined"
+          label="Quantity"
+          fullWidth
+          value={quantity}
+          InputProps={{
+            classes: {
+              input: styles.resize,
+            },
+          }}
+          InputLabelProps={{
+            classes: {
+              root: styles.resize,
+            },
+          }}
+        />
+      </Grid>
+      {/* <Grid item xs container className={styles.marginBottom}>
+        <TextField
           onChange={(e) => setAvgCost(e.target.value)}
           variant="outlined"
           label="Average Cost"
@@ -181,7 +181,7 @@ const DrawerContent = ({
             },
           }}
         />
-      </Grid>
+      </Grid> */}
       <Grid item xs container className={styles.marginBottom}>
         <TextField
           onChange={(e) => setInvestedAmount(e.target.value)}
@@ -201,7 +201,7 @@ const DrawerContent = ({
           }}
         />
       </Grid>
-      <Grid item xs container className={styles.marginBottom}>
+      {/* <Grid item xs container className={styles.marginBottom}>
         <TextField
           onChange={(e) => setPercentProfileValue(e.target.value)}
           variant="outlined"
@@ -219,8 +219,8 @@ const DrawerContent = ({
             },
           }}
         />
-      </Grid>
-      <Grid item xs container className={styles.marginBottom}>
+      </Grid> */}
+      {/* <Grid item xs container className={styles.marginBottom}>
         <TextField
           onChange={(e) => setUnrealizedPL(e.target.value)}
           variant="outlined"
@@ -238,8 +238,8 @@ const DrawerContent = ({
             },
           }}
         />
-      </Grid>
-      <Grid item xs container className={styles.marginBottom}>
+      </Grid> */}
+      {/* <Grid item xs container className={styles.marginBottom}>
         <TextField
           onChange={(e) => setReturns(e.target.value)}
           variant="outlined"
@@ -257,7 +257,7 @@ const DrawerContent = ({
             },
           }}
         />
-      </Grid>
+      </Grid> */}
       <Grid item xs container>
         <Button
           onClick={handleSubmit}

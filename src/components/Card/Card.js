@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
+// import { Paper } from "@material-ui/core";
 
 import Column1 from "./CardColumns/Column1";
 import Column2 from "./CardColumns/Column2";

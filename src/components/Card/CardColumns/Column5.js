@@ -7,7 +7,7 @@ const useStyles = makeStyles({
   button: {
     border: "2px solid orange",
     color: "orange",
-    width: 84,
+    width: 74,
     fontSize: "1.4rem",
   },
 });
