@@ -11,6 +11,7 @@ import classes from "../../styles/Card/CardColumns.module.scss";
 import "../../styles/bootstrap/bootstrapGrid.min.css";
 
 const Card = ({ data, handleHamburgerClick }) => {
+  // console.log(data);
   const column1Data = {
     scrip: data.scrip,
     price: data.price,
@@ -29,6 +30,7 @@ const Card = ({ data, handleHamburgerClick }) => {
   const column4Data = {
     unrealized_PL: data.unrealized_PL,
     invested_amount: data.invested_amount,
+    market_value: data.market_value,
   };
 
   return (

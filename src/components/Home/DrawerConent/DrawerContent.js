@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Grid, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -42,6 +43,7 @@ const DrawerContent = ({
   const [price, setPrice] = useState("");
   const [avgCost, setAvgCost] = useState("");
   const [investedAmount, setInvestedAmount] = useState("");
+  const [marketValue, setMarketValue] = useState("");
   const [percentProfileValue, setPercentProfileValue] = useState("");
   const [unrealizedPL, setUnrealizedPL] = useState("");
   const [returns, setReturns] = useState("");
@@ -53,6 +55,7 @@ const DrawerContent = ({
     setPrice(currentScrip.price);
     setAvgCost(currentScrip.avg_cost);
     setInvestedAmount(currentScrip.invested_amount);
+    setMarketValue(currentScrip.market_value);
     setPercentProfileValue(currentScrip.percent_portfolio_value);
     setUnrealizedPL(currentScrip.unrealized_PL);
     setReturns(currentScrip["return "]);
@@ -73,6 +76,7 @@ const DrawerContent = ({
       price: price,
       avg_cost: avgCost,
       invested_amount: investedAmount,
+      market_value: marketValue,
       percent_portfolio_value: percentProfileValue,
       unrealized_PL: unrealizedPL,
       return: returns,
@@ -106,24 +110,6 @@ const DrawerContent = ({
           ]}
           onChange={handleChange}
         />
-        {/* 
-                <FormControl variant="outlined" className={styles.formControl}>
-                    <InputLabel id="open-select-label">Scrip</InputLabel>
-                <Select
-                    id="open-select"
-                    open={open}
-                    onClose={handleClose}
-                    onOpen={handleOpen}
-                    value={scrip}
-                    onChange={handleChange}
-                >
-                    {
-                        data.map((d, index) =>
-                            <MenuItem key={index} value={d.scrip}>{d.scrip}</MenuItem>
-                        )
-                    }
-                </Select>
-                </FormControl> */}
       </Grid>
       <Grid item xs container className={styles.marginBottom}>
         <TextField

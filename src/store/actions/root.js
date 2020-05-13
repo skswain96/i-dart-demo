@@ -38,6 +38,7 @@ export const getAllData = () => (dispatch) => {
 };
 
 export const updateData = (newData) => (dispatch) => {
+  // console.log(newData);
   dispatch(setNewdata(newData));
 };
 

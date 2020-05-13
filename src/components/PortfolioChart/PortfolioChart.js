@@ -21,7 +21,7 @@ const data02 = [
 
 const PortfolioChart = ({ data, chartData }) => {
   const [chartdata, setChartdata] = useState([]);
-
+  console.log(chartData);
   useEffect(() => {
     if (chartData) {
       let reqChartData = [
