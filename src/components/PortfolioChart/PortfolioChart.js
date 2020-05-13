@@ -22,7 +22,7 @@ const data02 = [
 
 const PortfolioChart = ({ data, chartData }) => {
 
-    const [chartdata, setChartdata] = useState({})
+    const [chartdata, setChartdata] = useState([])
 
     useEffect(() => {
         if (chartData) {
@@ -58,7 +58,7 @@ const PortfolioChart = ({ data, chartData }) => {
                     outerRadius={80}
                     fill="#82ca9d" >
                     {
-                        data02.map((entry, index) => <Cell fill={entry.color} />)
+                        data02.map((entry, index) => <Cell key={index} fill={entry.color} />)
                     }
                 </Pie>
                 <Tooltip />

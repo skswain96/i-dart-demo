@@ -43,9 +43,9 @@ const DrawerContent = ({ data, updateData, getScripValues, handleCloseSideDrawer
     const [returns, setReturns] = useState('')
 
     const handleChange = async (e) => {
-        setScrip(e.target.value)
-        let currentScrip = data.find(d => d.scrip === e.target.value)
-        console.log('this is curretn scrip', currentScrip)
+
+        setScrip(e.value)
+        let currentScrip = data.find(d => d.scrip === e.value)
         setQuantity(currentScrip.quantity)
         setPrice(currentScrip.price)
         setAvgCost(currentScrip.avg_cost)
@@ -55,13 +55,13 @@ const DrawerContent = ({ data, updateData, getScripValues, handleCloseSideDrawer
         setReturns(currentScrip["return "])
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    // const handleClose = () => {
+    //     setOpen(false);
+    // };
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    // const handleOpen = () => {
+    //     setOpen(true);
+    // };
 
     const handleSubmit = () => {
         const newData = {
@@ -93,6 +93,7 @@ const DrawerContent = ({ data, updateData, getScripValues, handleCloseSideDrawer
                         [...data.map(d => { return { label: d.scrip, value: d.scrip } }
                         )]
                     }
+                    onChange={handleChange}
                 />
                 {/* 
                 <FormControl variant="outlined" className={styles.formControl}>
