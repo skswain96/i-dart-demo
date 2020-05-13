@@ -21,7 +21,7 @@ const data02 = [
 
 const PortfolioChart = ({ data, chartData }) => {
   const [chartdata, setChartdata] = useState([]);
-  console.log(chartData);
+
   useEffect(() => {
     if (chartData) {
       let reqChartData = [
@@ -54,7 +54,7 @@ const PortfolioChart = ({ data, chartData }) => {
           outerRadius={80}
           fill="#82ca9d"
         >
-          {data02.map((entry, index) => (
+          {chartdata.map((entry, index) => (
             <Cell key={index} fill={entry.color} />
           ))}
         </Pie>

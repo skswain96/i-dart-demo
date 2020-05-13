@@ -8,7 +8,7 @@ export const data = [
     market_value: 21629,
     percent_portfolio_value: 22.06,
     unrealized_PL: 3676.93,
-    "return ": 20.48,
+    return: 20.48,
     type: "MF",
   },
   {
@@ -20,7 +20,7 @@ export const data = [
     market_value: 21629,
     percent_portfolio_value: 5.81,
     unrealized_PL: 146.16,
-    "return ": 3.09,
+    return: 3.09,
     type: "MF",
   },
   {
@@ -32,7 +32,7 @@ export const data = [
     market_value: 21629,
     percent_portfolio_value: 22.86,
     unrealized_PL: -1377.6,
-    "return ": -7.41,
+    return: -7.41,
     type: "MF",
   },
   {
@@ -44,7 +44,7 @@ export const data = [
     market_value: 21629,
     percent_portfolio_value: 21.89,
     unrealized_PL: -1470.64,
-    "return ": -8.26,
+    return: -8.26,
     type: "MF",
   },
   {
@@ -56,7 +56,7 @@ export const data = [
     market_value: 21629,
     percent_portfolio_value: 16.92,
     unrealized_PL: 3441.34,
-    "return ": 25.0,
+    return: 25.0,
     type: "ETF",
   },
   {
@@ -68,7 +68,7 @@ export const data = [
     market_value: 21629,
     percent_portfolio_value: 10.46,
     unrealized_PL: -1470.22,
-    "return ": 0.0,
+    return: 0.0,
     type: "ETF",
   },
 ];
