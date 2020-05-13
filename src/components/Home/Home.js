@@ -1,76 +1,84 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { Drawer } from '@material-ui/core'
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { Drawer } from "@material-ui/core";
 
-import Card from '../Card/Card'
-import DrawerContent from './DrawerConent/DrawerContent'
-import PortfolioChart from '../PortfolioChart/PortfolioChart'
-import { getAllData } from '../../store/actions/index'
+import Card from "../Card/Card";
+import DrawerContent from "./DrawerConent/DrawerContent";
+import PortfolioChart from "../PortfolioChart/PortfolioChart";
+import { getAllData } from "../../store/actions/index";
 
+import "../../styles/Card/_drawerGlobal.scss";
+import classes from "../../styles/HomePage.module.scss";
+import LogoImg from "../../assets/img/logo.jpg";
 
-import '../../styles/Card/_drawerGlobal.scss'
-import classes from '../../styles/HomePage.module.scss'
+const Home = (props) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
 
+  useEffect(() => {
+    props.setUpData();
+  }, []);
 
-const Home = props => {
+  const toggleDrawer = () => {
+    setOpenDrawer(!openDrawer);
+  };
 
-    const [openDrawer, setOpenDrawer] = useState(false)
+  const handleHamburgerClick = (index) => {
+    toggleDrawer();
+  };
 
-    useEffect(() => {
-        props.setUpData()
-    }, [])
+  return (
+    <div>
+      <div className={classes.openMenuButton}>
+        <img src={LogoImg} alt="i-dart logo" height="24" />
+        <i className="fa fa-bars" onClick={handleHamburgerClick} />
+      </div>
+      {props.data ? (
+        <>
+          <div className="container-fluid" style={{ marginTop: 18 }}>
+            <div className="row">
+              <div className="col-md-9">
+                {props.data.map((d, index) => (
+                  <Card
+                    key={index}
+                    data={d}
+                    // handleHamburgerClick={() => handleHamburgerClick(index)}
+                  />
+                ))}
+              </div>
 
-    const toggleDrawer = () => {
-        setOpenDrawer(!openDrawer)
-    }
-
-    const handleHamburgerClick = (index) => {
-        toggleDrawer()
-    }
-
-    return (
-        <div>
-            <div className={classes.openMenuButton} >
-                <span>IDart</span>
-                <i className="fa fa-bars" onClick={handleHamburgerClick} />
+              <div className="col-md-3">
+                <PortfolioChart />
+              </div>
             </div>
-            {
-                props.data ?
-                    <>
+          </div>
 
-                        <PortfolioChart />
-                        {
-                            props.data.map((d, index) =>
-                                <Card
-                                    key={index}
-                                    data={d}
-                                // handleHamburgerClick={() => handleHamburgerClick(index)}
-                                />
-                            )
-                        }
+          <Drawer
+            anchor={"right"}
+            open={openDrawer}
+            onClose={toggleDrawer}
+            className="material-drawer"
+          >
+            <DrawerContent
+              data={props.data}
+              handleCloseSideDrawer={toggleDrawer}
+            />
+          </Drawer>
+        </>
+      ) : null}
+    </div>
+  );
+};
 
-                        <Drawer anchor={'right'} open={openDrawer} onClose={toggleDrawer} className="material-drawer">
-                            <DrawerContent data={props.data} handleCloseSideDrawer={toggleDrawer} />
-                        </Drawer>
-                    </>
-                    :
-                    null
-            }
+const mapStateToProps = (state) => {
+  return {
+    data: state.root.data,
+  };
+};
 
-        </div>
-    )
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUpData: () => dispatch(getAllData()),
+  };
+};
 
-const mapStateToProps = state => {
-    return {
-        data: state.root.data
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        setUpData: () => dispatch(getAllData())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

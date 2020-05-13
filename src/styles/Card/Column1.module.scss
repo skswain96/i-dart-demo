@@ -1,49 +1,51 @@
-@import './cardglobal.scss';
+@import "./cardglobal.scss";
 
-.column1{
-    @include flexDisplay;
-    min-width:170px;
-    position: relative;
-    height:$card-height;
-    padding:8px;
-    background:$card-background;
-    .scripData{
-        @include flexDisplay(column);
-        margin-right: 10px;
-        .scrip{
-            color:rgba(0,0,0,0.4);
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        .price{
-            color:rgb(0, 183, 255);
-            font-size:1.5rem;
-        }
+.column1 {
+  @include flexDisplay;
+  min-width: 170px;
+  position: relative;
+  height: $card-height;
+  padding: 8px;
+  background: $card-background;
+  .scripData {
+    @include flexDisplay(column);
+    margin-right: 14px;
+    margin-left: 12px;
+    .scrip {
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 0.8rem;
+      font-weight: bold;
     }
-    i{
-        position: absolute;
-        left:10px;
-        cursor: pointer;
+    .price {
+      color: rgb(0, 183, 255);
+      font-size: 1.5rem;
+      font-weight: 600;
     }
+  }
+  i {
+    position: absolute;
+    left: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }
 
-    //optional
-    .styledData {
-        @include flexDisplay(column, flex-start, flex-start);
-        .ishares{
-            color: rgb(0, 182, 15);
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-        .blackdoc{
-            font-size:0.6rem;
-        }
-        .sp{
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        .equity{
-            font-size: 1rem;
-        }
-
+  //optional
+  .styledData {
+    @include flexDisplay(column, flex-start, flex-start);
+    .ishares {
+      color: #a8bd84;
+      font-weight: bold;
+      font-size: 1.3rem;
     }
+    .blackdoc {
+      font-size: 0.6rem;
+    }
+    .sp {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .equity {
+      font-size: 1rem;
+    }
+  }
 }
