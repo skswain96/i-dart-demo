@@ -5,10 +5,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Select1 from '@atlaskit/select';
+import Textfield from '@atlaskit/textfield'
 import Button from '@material-ui/core/Button'
 
 import { connect } from 'react-redux'
 import { updateData, getScripData } from '../../../store/actions/index'
+
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -83,23 +86,32 @@ const DrawerContent = ({ data, updateData, getScripValues, handleCloseSideDrawer
                     onClick={handleCloseSideDrawer} />
             </Grid>
             <Grid item xs container className={styles.marginBottom}>
+                <Select1
+                    className="single-select"
+                    classNamePrefix="react-select"
+                    options={
+                        [...data.map(d => { return { label: d.scrip, value: d.scrip } }
+                        )]
+                    }
+                />
+                {/* 
                 <FormControl variant="outlined" className={styles.formControl}>
                     <InputLabel id="open-select-label">Scrip</InputLabel>
-                    <Select
-                        id="open-select"
-                        open={open}
-                        onClose={handleClose}
-                        onOpen={handleOpen}
-                        value={scrip}
-                        onChange={handleChange}
-                    >
-                        {
-                            data.map((d, index) =>
-                                <MenuItem key={index} value={d.scrip}>{d.scrip}</MenuItem>
-                            )
-                        }
-                    </Select>
-                </FormControl>
+                <Select
+                    id="open-select"
+                    open={open}
+                    onClose={handleClose}
+                    onOpen={handleOpen}
+                    value={scrip}
+                    onChange={handleChange}
+                >
+                    {
+                        data.map((d, index) =>
+                            <MenuItem key={index} value={d.scrip}>{d.scrip}</MenuItem>
+                        )
+                    }
+                </Select>
+                </FormControl> */}
             </Grid>
             <Grid item xs container className={styles.marginBottom}>
                 <TextField
@@ -262,7 +274,7 @@ const DrawerContent = ({ data, updateData, getScripValues, handleCloseSideDrawer
                     Submit
                     </Button>
             </Grid>
-        </Grid>
+        </Grid >
     )
 }
 
