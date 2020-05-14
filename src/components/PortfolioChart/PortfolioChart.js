@@ -15,7 +15,7 @@ const PortfolioChart = ({ data, chartData }) => {
       let reqChartData = [
         {
           name: "Mutual Funds",
-          value: parseFloat(mfCell), //Math.abs(parseFloat(chartData.mfPercent)).toFixed(2)
+          value: parseFloat(mfCell),
           color: "#03a9f4",
         },
         {
