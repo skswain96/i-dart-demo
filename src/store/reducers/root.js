@@ -7,9 +7,10 @@ import {
 } from "../actions/index";
 
 const initialState = {
-  data: [],
+  data: null,
   currentScrip: {},
   chartData: null,
+  refreshData: false
 };
 
 export default (state = initialState, action) => {
@@ -25,15 +26,20 @@ export default (state = initialState, action) => {
         mfPercent: 0,
         etfPercent: 0,
       };
+      // console.log('action dtaa', action.data)
       action.data.map((d) => {
-        if (d.type === "MF")
+        if (d.type === "MF") {
+          // console.log(d.percent_portfolio_value)
           newChartData.mfPercent += d.percent_portfolio_value;
+        }
         else if (d.type === "ETF")
           newChartData.etfPercent += d.percent_portfolio_value;
         else return;
       });
-      newChartData.mfPercent = newChartData.mfPercent.toFixed(2);
-      newChartData.etfPercent = newChartData.etfPercent.toFixed(2);
+
+      // console.log('newchart dtaa', newChartData)
+      newChartData.mfPercent = newChartData.mfPercent;
+      newChartData.etfPercent = newChartData.etfPercent;
       return {
         ...state,
         chartData: newChartData,
@@ -42,12 +48,13 @@ export default (state = initialState, action) => {
       let totalData = [...state.data];
       let reqData = totalData.map((data) => {
         if (data.scrip === action.newData.scrip) {
-          return action.newData;
+          return { ...data, ...action.newData };
         } else return data;
       });
       return {
         ...state,
         data: reqData,
+        refreshData: !state.refreshData
       };
 
     case GET_SCRIP:

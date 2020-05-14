@@ -16,8 +16,11 @@ const Home = (props) => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
-    props.setUpData();
-  }, []);
+    if (props.data === null) {
+      props.setUpData();
+    } else {
+    }
+  }, [props.refreshData]);
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
@@ -42,7 +45,7 @@ const Home = (props) => {
                   <Card
                     key={index}
                     data={d}
-                    // handleHamburgerClick={() => handleHamburgerClick(index)}
+                  // handleHamburgerClick={() => handleHamburgerClick(index)}
                   />
                 ))}
               </div>
@@ -73,6 +76,7 @@ const Home = (props) => {
 const mapStateToProps = (state) => {
   return {
     data: state.root.data,
+    refreshData: state.root.refreshData
   };
 };
 

@@ -32,14 +32,53 @@ const getScrip = (scrip) => {
   };
 };
 
+
+const convertToFloat = num => {
+  return parseFloat(num.toFixed(2))
+}
+const totalInvestedAmount = arr => {
+  return arr.reduce((total, d) =>
+    total + d.invested_amount
+    , 0)
+}
+
+const findDynamicValues = arr => {
+  return arr.map(d => {
+    return {
+      ...d,
+      ['avg_cost']: d.invested_amount / d.quantity,
+      ['market_value']: d.price * d.quantity,
+      ['unrealized_PL']: convertToFloat((d.price * d.quantity) - d.invested_amount),
+      ['return']: convertToFloat((((d.price * d.quantity) - d.invested_amount) * 100) / d.invested_amount),
+      ['percent_portfolio_value']: convertToFloat((d.price * d.quantity / totalInvestedAmount(arr)) * 100)
+    }
+  })
+}
+
+
 export const getAllData = () => (dispatch) => {
-  dispatch(setUpData(data));
-  dispatch(setUpChartData(data));
+  //calculate total invested_amount
+  //set up dynamic data
+  let reqdata = findDynamicValues(data)
+  dispatch(setUpData(reqdata));
+  dispatch(setUpChartData(reqdata));
 };
 
 export const updateData = (newData) => (dispatch) => {
-  // console.log(newData);
-  dispatch(setNewdata(newData));
+  // dispatch(setNewdata(newData));
+  // console.log('new data ', newData)
+  let reqData = [...data];
+  reqData = reqData.map((data) => {
+    if (data.scrip === newData.scrip) {
+      console.log({ ...data, ...newData })
+      return { ...data, ...newData };
+    } else return data;
+  });
+  reqData = findDynamicValues(reqData)
+  // console.log(' neew Req Data', reqData)
+
+  dispatch(setUpData(reqData))
+  dispatch(setUpChartData(reqData))
 };
 
 export const getScripData = (scrip) => (dispatch) => {

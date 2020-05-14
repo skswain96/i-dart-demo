@@ -74,12 +74,12 @@ const DrawerContent = ({
       scrip: scrip,
       quantity: quantity,
       price: price,
-      avg_cost: avgCost,
-      invested_amount: investedAmount,
-      market_value: marketValue,
-      percent_portfolio_value: percentProfileValue,
-      unrealized_PL: unrealizedPL,
-      return: returns,
+      // avg_cost: avgCost,
+      invested_amount: parseFloat(investedAmount),
+      // market_value: marketValue,
+      // percent_portfolio_value: percentProfileValue,
+      // unrealized_PL: unrealizedPL,
+      // return: returns,
     };
     updateData(newData);
   };
