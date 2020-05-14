@@ -6,33 +6,21 @@ import { connect } from "react-redux";
 
 import classes from "../../styles/PortfolioChart.module.scss";
 
-const data02 = [
-  {
-    name: "ETFs",
-    value: 4567,
-    color: "#03a9f4",
-  },
-  {
-    name: "Mutual Funds",
-    value: 2400,
-    color: "#ae9c46",
-  },
-];
-
 const PortfolioChart = ({ data, chartData }) => {
   const [chartdata, setChartdata] = useState([]);
-
+  const mfCell = Math.abs(parseFloat(chartData.mfPercent)).toFixed(2);
+  const etfCell = Math.abs(parseFloat(chartData.etfPercent)).toFixed(2);
   useEffect(() => {
     if (chartData) {
       let reqChartData = [
         {
           name: "Mutual Funds",
-          value: parseFloat(chartData.mfPercent),
+          value: parseFloat(mfCell), //Math.abs(parseFloat(chartData.mfPercent)).toFixed(2)
           color: "#03a9f4",
         },
         {
           name: "ETFs",
-          value: parseFloat(chartData.etfPercent),
+          value: parseFloat(etfCell),
           color: "#ae9c46",
         },
       ];
