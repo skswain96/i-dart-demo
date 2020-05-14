@@ -11,6 +11,22 @@
     font-size: 1.8rem;
     font-weight: 600;
     color: #000000;
-    padding-left: 14px;
   }
+
+  .select {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  // .select::after {
+  //   background-image: url("../assets//img//caret-down-solid.svg");
+  //   background-repeat: no-repeat;
+  //   padding-left: 4px;
+  // }
 }

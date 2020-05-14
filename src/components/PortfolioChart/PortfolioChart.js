@@ -28,12 +28,12 @@ const PortfolioChart = ({ data, chartData }) => {
         {
           name: "Mutual Funds",
           value: parseFloat(chartData.mfPercent),
-          color: "#ae9c46",
+          color: "#03a9f4",
         },
         {
           name: "ETFs",
           value: parseFloat(chartData.etfPercent),
-          color: "#03a9f4",
+          color: "#ae9c46",
         },
       ];
       setChartdata(reqChartData);
@@ -42,7 +42,19 @@ const PortfolioChart = ({ data, chartData }) => {
 
   return (
     <Paper elevate={6} className={classes.portfolioChart}>
-      <div className={classes.header}>Portfolio</div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 14px",
+        }}
+      >
+        <div className={classes.header}>Portfolio</div>
+        <select className={classes.select}>
+          <option>Asset Wise</option>
+        </select>
+      </div>
       <PieChart width={310} height={200}>
         <Pie
           data={chartdata}
