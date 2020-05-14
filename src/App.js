@@ -3,7 +3,7 @@ import "./App.css";
 
 import { Route, Switch } from "react-router-dom";
 
-import Spinner from "./UI/Spinner/Spinner";
+import Spinner from "./components/Spinner/Spinner";
 import { Grid } from "@material-ui/core";
 
 const Home = lazy(() => import("./UI/Home/Home"));
