@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import Spinner from "./UI/Spinner/Spinner";
 import { Grid } from "@material-ui/core";
 
-const Home = lazy(() => import("./components/Home/Home"));
+const Home = lazy(() => import("./UI/Home/Home"));
 
 const LoadingScreen = (
   <Grid

@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Drawer } from "@material-ui/core";
 
-import Card from "../Card/Card";
+import Card from "../../components/Card/Card";
 import DrawerContent from "./DrawerConent/DrawerContent";
-import PortfolioChart from "../PortfolioChart/PortfolioChart";
+import PortfolioChart from "../../components/PortfolioChart/PortfolioChart";
 import { getAllData } from "../../store/actions/index";
 
 import "../../styles/Card/_drawerGlobal.scss";
