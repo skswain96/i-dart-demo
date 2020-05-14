@@ -1,68 +1,302 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Structure
 
-## Available Scripts
 
-In the project directory, you can run:
+components
 
-### `yarn start`
+Card  -
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+CardColumns
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+PortfolioChart
+Spinner
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+dump
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+assets
 
-### `yarn eject`
+icons
+img
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+store
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+actions
+reducers
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+UI
 
-### Code Splitting
+Home
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+DrawerContent
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+UI
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Home (Home Page) =>
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Child Components
+
+Card
+DrawerContent
+PortfolioChart
+
+
+
+props
+
+From redux
+
+data , refreshData, setUpData, updateData
+
+
+
+
+
+functions
+
+toggleDrawer - Toggle side drawer
+handleHamburgerClick - Click event on top right menu      button (runs toggleDrawer)
+handleDrawerSubmit - handle Drawer Submission
+
+
+
+
+
+
+dump
+
+
+file =>
+
+data.js - mock data
+
+
+
+
+assets
+
+
+icons
+
+fontawesome.min.css -
+font-awesome icon file
+
+
+
+img
+
+logo and caret-down svg
+
+
+
+
+Components
+
+
+Spinner (Css Loader)
+
+PortfolioChart (Pie Chart ) =>
+
+
+props
+
+From redux
+
+data , chartData
+
+
+
+
+
+
+
+Card (Single Card on Home Page) =>
+
+
+Child Components
+
+Column1
+Column2
+Column3
+Column4
+Column5
+
+
+
+props
+
+From Home(UI)
+
+data
+
+
+
+
+
+
+
+
+Columns (components/Card/CardColumns)
+
+
+Column1
+
+
+props
+
+From Card(components)
+
+data.scrip, data.price
+
+
+
+
+
+
+
+Column2
+
+
+props
+
+From Card(components)
+
+data.quantity, data.avg_cost, data.invested_amount
+
+
+
+
+
+
+
+Column3
+
+
+props
+
+From Card(components)
+
+data.quantity, data.price, data.percent_portfolio_value
+
+
+
+
+
+
+
+Column4
+
+
+props
+
+From Card(components)
+
+data.unrealized_PL, data.invested_amount, data.market_value
+
+
+
+
+
+
+
+Column5 (Buy & Sell button)
+
+
+store (Redux store)
+
+
+configureStore.js (configuring store)
+
+Middlewares
+
+thunk (redux-thunk)
+
+
+
+
+
+actions (redux actions)
+
+root.js (root actions)
+index.js (export all actions)
+
+
+
+reducers (redux reducer functions & store)
+
+root.js (root reducers)
+index.js (combine all reducers)
+
+
+
+
+actions (Redux actions)
+
+
+root.js
+
+
+actions
+
+SET_ALL_DATA :
+Get data from source and save in redux store
+SET_CHART_DATA :
+Set data for chart i.e. MF and ETF percent
+GET_SCRIP :
+Get data by providing name of scrip
+
+
+
+actionCreators
+
+getScrip
+payload : scrip ( name of scrip)
+type : GET_SCRIP
+getAlldata :
+type : SET_ALL_DATA, SET_CHART_DATA
+updateData (update data) :
+type : SET_ALL_DATA, SET_CHART_DATA
+
+
+
+util functions
+
+convertToFloat
+input : number, stringified number
+return : float num ( 2 decimal digits )
+totalInvestedAmount
+input : array
+return : sum total of invested_amount
+findDynamicValues
+input : array (invested_amount, quantity, price)
+return : calculate other dynamic values
+
+
+
+
+
+
+redcers (Redux reducers )
+
+
+root.js
+
+state :
+
+data (fetched data for cards)
+currentScrip (currently selected scrip data )
+chartData (MF and ETF percent)
+refreshData (whether to refresh cards)
